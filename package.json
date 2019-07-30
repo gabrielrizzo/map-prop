@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/gabrielrizzo/map-prop#readme",
   "devDependencies": {
+    "@vue/eslint-config-standard": "^3.0.5",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.7.0",
+    "eslint-plugin-vue": "^4.7.1",
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5"

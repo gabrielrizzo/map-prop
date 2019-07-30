@@ -1,30 +1,28 @@
-// import mixin from '../propsExample'
-// const { props } = mixin
-const mapProps = (props) => {
+export const mapProps = function (propsNames) {
+  if (!Array.isArray(propsNames)) {
+    throw new Error('Import module must be an Array')
+  }
 
-  const getProps = function (propsNames) {
-    if (!Array.isArray(propsNames)) {
-      throw new Error('Import module must be an Array')
+  return propsNames.reduce((acc, elm) => {
+    // eslint-disable-next-line
+    if (!globalThis.vm['_globalProps'][elm]) {
+      return acc
     }
 
-    return propsNames.reduce((acc, elm) => {
-      if (!props[elm]) {
-        return acc
+    acc = {
+      ...acc,
+      [elm]: {
+        // eslint-disable-next-line
+        ...globalThis.vm['_globalProps'][elm]
       }
-
-      acc = {
-        ...acc,
-        [elm]: {
-          ...props[elm]
-        }
-      }
-      return acc
-    }, {})
-  }
-
-  return {
-    getProps
-  }
+    }
+    return acc
+  }, {})
 }
 
-export default mapProps
+export const mapPropsPlugin = {
+  install (Vue, props) {
+    // eslint-disable-next-line
+    globalThis.vm['_globalProps'] = props
+  }
+}
