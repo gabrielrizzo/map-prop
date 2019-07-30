@@ -2,9 +2,10 @@
   "name": "map-props",
   "version": "1.0.0",
   "description": "A lib to generate on-demand for VueJs applications",
-  "main": "index.js",
+  "main": "map-props/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec babel-node map-props/index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/gabrielrizzo/map-prop/issues"
   },
-  "homepage": "https://github.com/gabrielrizzo/map-prop#readme"
+  "homepage": "https://github.com/gabrielrizzo/map-prop#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5"
+  },
+  "dependencies": {
+    "@babel/node": "^7.5.5"
+  }
 }
